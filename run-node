@@ -4,7 +4,7 @@
 PATH_CACHE="$HOME"/.node_path
 
 get_user_path() {
-	eval $(/usr/libexec/path_helper -s)
+	[[ -x "/usr/libexec/path_helper" ]] && eval $(/usr/libexec/path_helper -s)
 	echo "$($SHELL -i -l -c 'echo -e "\n"PATH=\"$PATH:\$PATH\""\n"' 2>/dev/null | grep "^PATH=")" > "$PATH_CACHE"
 }
 
