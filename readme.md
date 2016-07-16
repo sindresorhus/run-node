@@ -38,7 +38,7 @@ Or in an [npm run script](https://docs.npmjs.com/cli/run-script):
 Download the [run-node](run-node) file:
 
 ```
-$ curl -sSLO https://github.com/sindresorhus/run-node/raw/master/run-node
+$ curl -sSLO https://github.com/sindresorhus/run-node/raw/master/run-node && chmod +x run-node
 ```
 
 #### Usage
