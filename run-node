@@ -1,15 +1,7 @@
 #!/bin/bash
+# MIT License © Sindre Sorhus
 
-if [[ -z "$alfred_workflow_cache" ]]; then
-	echo "This script must be called from Alfred, \$alfred_workflow_cache is missing"
-	exit 1
-fi
-
-if [[ ! -d "$alfred_workflow_cache" ]]; then
-	mkdir -p "$alfred_workflow_cache"
-fi
-
-PATH_CACHE="$alfred_workflow_cache"/node_path
+PATH_CACHE="$HOME"/.node_path
 
 get_user_path() {
 	eval $(/usr/libexec/path_helper -s)
@@ -45,5 +37,5 @@ fi
 if has_node; then
 	node "$@"
 else
-	echo $'{"items":[{"title": "Couldn\'t find the `node` binary", "subtitle": "Symlink it to `/usr/local/bin`"}]}'
+	echo "Couldn't find the Node.js binary. Ensure you have Node.js installed. Open an issue on https://github.com/sindresorhus/run-node"
 fi
