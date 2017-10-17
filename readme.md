@@ -8,6 +8,9 @@ This Bash script uses some tricks to find the Node.js binary on your system and 
 
 Can be used from any environment that can spawn a process (Shell, Python, Ruby, Swift, Objective-C, etc).
 
+Error message for when node ain't found can be personalized by setting the environment variable "RUN_NODE_ERROR_MSG".
+Node cache path can be customized by adding the environment variable "RUN_NODE_CACHE_PATH".
+
 
 ### npm
 
