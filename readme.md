@@ -46,6 +46,23 @@ $ curl -sSLO https://github.com/sindresorhus/run-node/raw/master/run-node && chm
 ```
 ./run-node file.js
 ```
+### Add and edit customizable cache path and error message
+
+The cache path and error message are defined by ```RUN_NODE_CACHE_PATH``` and ```RUN_NODE_ERROR_MSG``` respectively. To add and edit this variables add this line to ```~.bashrc``` or ```~/.bash_profile```:
+
+```
+#node-run variables
+export RUN_NODE_ERROR_MSG="Custom error message"
+export RUN_NODE_CACHE_PATH="/custom/path/to/cache"
+```
+
+For example:
+
+```
+#node-run variables
+export RUN_NODE_ERROR_MSG="Node.js binary not found. Make sure you have installed Node.js"
+export RUN_NODE_CACHE_PATH="/home/username/.node_path"
+```
 
 
 ## Created by
