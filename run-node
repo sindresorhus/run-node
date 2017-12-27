@@ -13,7 +13,7 @@ get_user_path() {
 }
 
 set_path() {
-	if [ -f "$PATH_CACHE" ]; then
+	if [[ -f "$PATH_CACHE" ]]; then
 		. "$PATH_CACHE"
 	else
 		get_user_path
@@ -41,7 +41,7 @@ fi
 if has_node; then
 	node "$@"
 else
-	if [ -z $RUN_NODE_ERROR_MSG ]; then
+	if [[ -z $RUN_NODE_ERROR_MSG ]]; then
 		echo "Couldn't find the Node.js binary. Ensure you have Node.js installed. Open an issue on https://github.com/sindresorhus/run-node"
  	else
  		echo "$RUN_NODE_ERROR_MSG"
