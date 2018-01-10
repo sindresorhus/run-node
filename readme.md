@@ -53,7 +53,6 @@ The cache path and error message are defined by `RUN_NODE_CACHE_PATH` and `RUN_N
 Default configuration:
 
 ```
-#node-run variables
 export RUN_NODE_ERROR_MSG="Couldn't find the Node.js binary. Ensure you have Node.js installed. Open an issue on https://github.com/sindresorhus/run-node"
 export RUN_NODE_CACHE_PATH="/home/username/.node_path"
 ```
