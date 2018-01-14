@@ -1,6 +1,6 @@
 {
 	"name": "run-node",
-	"version": "0.1.1",
+	"version": "0.2.0",
 	"description": "Run the Node.js binary no matter what",
 	"license": "MIT",
 	"repository": "sindresorhus/run-node",
