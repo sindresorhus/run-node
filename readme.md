@@ -47,6 +47,17 @@ $ curl -sSLO https://github.com/sindresorhus/run-node/raw/master/run-node && chm
 ./run-node file.js
 ```
 
+#### Customizable cache path and error message
+
+The cache path and error message are defined by the `RUN_NODE_CACHE_PATH` and `RUN_NODE_ERROR_MSG` environment variables. You could use them in a script or add them to your `~.bashrc`.
+
+Default config:
+
+```sh
+export RUN_NODE_ERROR_MSG="Couldn't find the Node.js binary. Ensure you have Node.js installed. Open an issue on https://github.com/sindresorhus/run-node"
+export RUN_NODE_CACHE_PATH="/home/username/.node_path"
+```
+
 
 ## Created by
 
