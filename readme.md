@@ -14,7 +14,7 @@ Can be used from any environment that can spawn a process (Shell, Python, Ruby, 
 #### Install
 
 ```
-$ npm install --save run-node
+$ npm install run-node
 ```
 
 #### Usage
