@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # MIT License © Sindre Sorhus
 
+nodeParams="$@"
+versionNumberRegex="([0-9]{1,}\.)+[0-9]{1,}"
+nodeCmd="node"
+nodeCmdWithParams="${nodeCmd} ${nodeParams}"
+nodeVersionCmd="${nodeCmd} --version 2>/dev/null"
+
 if [[ -z $RUN_NODE_CACHE_PATH ]]; then
 	PATH_CACHE="$HOME"/.node_path
 else
@@ -27,6 +33,19 @@ has_node() {
 	command -v node >/dev/null 2>&1
 }
 
+has_wsl_node() {
+	[[ -f /c/Windows/System32/bash.exe ]] &&
+		echo $(/c/Windows/System32/bash.exe -c "${nodeVersionCmd}") | egrep -icq "${versionNumberRegex}"
+}
+
+run_node() {
+  eval "${nodeCmdWithParams}"
+}
+
+run_wsl_node() {
+	/c/Windows/System32/bash.exe -c "${nodeCmdWithParams}"
+}
+
 # Check if we have node, otherwise inherit path from user shell
 if ! has_node; then
 	set_path
@@ -38,12 +57,19 @@ if ! has_node; then
 	fi
 fi
 
-if has_node; then
-	node "$@"
+
+if [[ ! -z $RUN_NODE_FORCE_WSL ]] && has_wsl_node; then
+	run_wsl_node
 else
-	if [[ -z $RUN_NODE_ERROR_MSG ]]; then
-		echo "Couldn't find the Node.js binary. Ensure you have Node.js installed. Open an issue on https://github.com/sindresorhus/run-node"
- 	else
- 		echo "$RUN_NODE_ERROR_MSG"
- 	fi
+	if has_node; then
+		run_node
+	elif [[ -z $RUN_NODE_FORCE_WSL ]] && has_wsl_node; then
+		run_wsl_node
+	else # elsif check wsl and node and run the bash.exe node command
+		if [[ -z $RUN_NODE_ERROR_MSG ]]; then
+			echo "Couldn't find the Node.js binary. Ensure you have Node.js installed. Open an issue on https://github.com/sindresorhus/run-node"
+		else
+			echo "$RUN_NODE_ERROR_MSG"
+		fi
+	fi
 fi
