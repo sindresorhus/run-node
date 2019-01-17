@@ -3,7 +3,7 @@
 
 nodeParams="$@"
 versionNumberRegex="([0-9]{1,}\.)+[0-9]{1,}"
-nodeCmd="node"
+nodeCmd=${RUN_NODE_CMD-"node"}
 nodeCmdWithParams="${nodeCmd} ${nodeParams}"
 nodeVersionCmd="${nodeCmd} --version 2>/dev/null"
 

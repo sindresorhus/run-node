@@ -67,6 +67,16 @@ By default, node is run from the Windows Subsystem for Linux (WSL) if is not fou
 export RUN_NODE_FORCE_WSL=1
 ```
 
+#### Customize the node command
+
+You could use the `RUN_NODE_CMD` environment variable to use a different command that includes the node execution.
+
+Example:
+
+```sh
+export RUN_NODE_CMD="meteor node"
+```
+
 ## Created by
 
 - [Sindre Sorhus](https://github.com/sindresorhus)
