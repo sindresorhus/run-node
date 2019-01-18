@@ -5,7 +5,7 @@ nodeParams="$@"
 versionNumberRegex="([0-9]{1,}\.)+[0-9]{1,}"
 nodeCmd=${RUN_NODE_CMD-"node"}
 nodeCmdWithParams="${nodeCmd} ${nodeParams}"
-nodeVersionCmd="${nodeCmd} --version 2>/dev/null"
+nodeVersionCmd="${nodeCmd} --version"
 
 if [[ -z $RUN_NODE_CACHE_PATH ]]; then
 	PATH_CACHE="$HOME"/.node_path
@@ -30,16 +30,16 @@ set_path() {
 }
 
 has_node() {
-	command -v node >/dev/null 2>&1
+  [[ "$(exec ${nodeVersionCmd} 2>/dev/null | egrep -ic ${versionNumberRegex})" -ne "0" ]]
 }
 
 has_wsl_node() {
 	[[ -f /c/Windows/System32/bash.exe ]] &&
-		echo $(/c/Windows/System32/bash.exe -c "${nodeVersionCmd}") | egrep -icq "${versionNumberRegex}"
+		[[ "$(/c/Windows/System32/bash.exe -c "${nodeVersionCmd}" 2>/dev/null | egrep -ic ${versionNumberRegex})" -ne "0" ]]
 }
 
 run_node() {
-  eval "${nodeCmdWithParams}"
+  exec ${nodeCmdWithParams}
 }
 
 run_wsl_node() {
@@ -47,7 +47,7 @@ run_wsl_node() {
 }
 
 # Check if we have node, otherwise inherit path from user shell
-if ! has_node; then
+if ! has_node && ! has_wsl_node; then
 	set_path
 
 	# Retry by deleting old path cache
