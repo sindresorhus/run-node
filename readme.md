@@ -59,12 +59,20 @@ export RUN_NODE_CACHE_PATH="/home/username/.node_path"
 ```
 
 
-## Created by
+## Maintainers
 
 - [Sindre Sorhus](https://github.com/sindresorhus)
 - [Mathias Fredriksson](https://github.com/mafredri)
 
 
-## License
+---
 
-MIT © [Sindre Sorhus](https://sindresorhus.com)
+<div align="center">
+	<b>
+		<a href="https://tidelift.com/subscription/pkg/npm-run-node?utm_source=npm-run-node&utm_medium=referral&utm_campaign=readme">Get professional support for this package with a Tidelift subscription</a>
+	</b>
+	<br>
+	<sub>
+		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
+	</sub>
+</div>
