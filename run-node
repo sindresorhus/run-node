@@ -1,12 +1,24 @@
 #!/usr/bin/env bash
 # MIT License © Sindre Sorhus
 
+if [[ -f "$PWD/node_modules/node/bin/node" ]]; then
+	PATH="$PWD/node_modules/node/bin:$PATH"
+	export PATH
+fi
+
 if [[ -z $RUN_NODE_CACHE_PATH ]]; then
-	PATH_CACHE="$HOME"/.node_path
+	if [[ -f "./.node_path" ]]; then
+		PATH_CACHE="./.node_path"
+		. "$PATH_CACHE"
+		export PATH
+    else
+	    PATH_CACHE="$HOME"/.node_path
+    fi
 else
 	PATH_CACHE="$RUN_NODE_CACHE_PATH"
 	if [[ -f "$PATH_CACHE" ]]; then
 		. "$PATH_CACHE"
+		export PATH
     fi
 fi
 
@@ -30,7 +42,6 @@ has_node() {
 	command -v node >/dev/null 2>&1
 }
 
-# Check if we have node, otherwise inherit path from user shell
 if ! has_node; then
 	set_path
 
