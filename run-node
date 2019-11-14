@@ -5,6 +5,9 @@ if [[ -z $RUN_NODE_CACHE_PATH ]]; then
 	PATH_CACHE="$HOME"/.node_path
 else
 	PATH_CACHE="$RUN_NODE_CACHE_PATH"
+	if [[ -f "$PATH_CACHE" ]]; then
+		. "$PATH_CACHE"
+    fi
 fi
 
 get_user_path() {
