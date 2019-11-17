@@ -2,7 +2,7 @@
 
 > Run the Node.js binary no matter what
 
-You can't always assume running `$ node file.js` will just work. The user might have the `node` binary in a non-standard location. They might be using a Node.js version manager like `nvm`, which is sourced in a subshell and not available from the outside. It also depends from where you're trying to run it. For example, GUI apps on macOS doesn't inherit the [`$PATH`](https://en.wikipedia.org/wiki/PATH_(variable)), so the `node` binary would not be found. Most projects that depend on Node.js just end up telling the user to manually set the full path to the `node` binary in some project specific settings. Now every project has to do this. [Ugh...](https://gist.github.com/cookrn/4015437) I prefer things to *just* work. With this module it will.
+You can't always assume running `$ node file.js` will just work. The user might have the `node` binary in a non-standard location. They might be using a Node.js version manager like `nvm`, which is sourced in a subshell and not available from the outside. Or they might have `node` installed as a local dependency in an npm project. It also depends from where you're trying to run it. For example, GUI apps on macOS doesn't inherit the [`$PATH`](https://en.wikipedia.org/wiki/PATH_(variable)), so the `node` binary would not be found. Most projects that depend on Node.js just end up telling the user to manually set the full path to the `node` binary in some project specific settings. Now every project has to do this. [Ugh...](https://gist.github.com/cookrn/4015437) I prefer things to *just* work. With this module it will.
 
 This Bash script uses some tricks to find the Node.js binary on your system and run it.
 
@@ -31,6 +31,8 @@ Or in an [npm run script](https://docs.npmjs.com/cli/run-script):
 }
 ```
 
+If the [`node`](https://www.npmjs.com/package/node) package is found in the local `node_modules` directory (for instance, if you have it installed as a [devDependency](https://docs.npmjs.com/files/package.json#devdependencies) of your npm project), this is the `node` binary that will be used.
+
 ### Manually
 
 #### Install
@@ -58,6 +60,7 @@ export RUN_NODE_ERROR_MSG="Couldn't find the Node.js binary. Ensure you have Nod
 export RUN_NODE_CACHE_PATH="/home/username/.node_path"
 ```
 
+If the `RUN_NODE_CACHE_PATH` variable is defined explicitly, the script it points will be sourced before looking for a `node` binary. You can use this script to override your `PATH` variable so that a specific `node` binary is found.
 
 ## Maintainers
 
