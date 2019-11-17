@@ -13,7 +13,7 @@ else
 	if [[ -f "$PATH_CACHE" ]]; then
 		. "$PATH_CACHE"
 		export PATH
-    fi
+	fi
 fi
 
 get_user_path() {
