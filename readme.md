@@ -8,7 +8,6 @@ This Bash script uses some tricks to find the Node.js binary on your system and 
 
 Can be used from any environment that can spawn a process (Shell, Python, Ruby, Swift, Objective-C, etc).
 
-
 ### npm
 
 #### Install
@@ -66,7 +65,6 @@ If the `RUN_NODE_CACHE_PATH` environment variable is defined explicitly, the scr
 
 - [Sindre Sorhus](https://github.com/sindresorhus)
 - [Mathias Fredriksson](https://github.com/mafredri)
-
 
 ---
 
