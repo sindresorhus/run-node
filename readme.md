@@ -60,7 +60,7 @@ export RUN_NODE_ERROR_MSG="Couldn't find the Node.js binary. Ensure you have Nod
 export RUN_NODE_CACHE_PATH="/home/username/.node_path"
 ```
 
-If the `RUN_NODE_CACHE_PATH` variable is defined explicitly, the script it points will be sourced before looking for a `node` binary. You can use this script to override your `PATH` variable so that a specific `node` binary is found.
+If the `RUN_NODE_CACHE_PATH` environment variable is defined explicitly, the script it points to will be sourced before looking for a `node` binary. You can use this script to override your `PATH` variable so that a specific `node` binary is found.
 
 ## Maintainers
 
