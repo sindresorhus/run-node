@@ -1,4 +1,4 @@
-# run-node [![Build Status](https://travis-ci.org/sindresorhus/run-node.svg?branch=master)](https://travis-ci.org/sindresorhus/run-node)
+# run-node
 
 > Run the Node.js binary no matter what
 
