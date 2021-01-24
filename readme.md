@@ -39,7 +39,7 @@ If the [`node`](https://www.npmjs.com/package/node) package is found in the loca
 Download the [run-node](run-node) file:
 
 ```
-$ curl -sSLO https://github.com/sindresorhus/run-node/raw/master/run-node && chmod +x run-node
+$ curl -sSLO https://github.com/sindresorhus/run-node/raw/main/run-node && chmod +x run-node
 ```
 
 #### Usage
