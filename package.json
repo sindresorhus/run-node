@@ -10,9 +10,10 @@
 		"email": "sindresorhus@gmail.com",
 		"url": "https://sindresorhus.com"
 	},
-	"bin": "run-node",
+	"type": "module",
+	"bin": "./run-node",
 	"engines": {
-		"node": ">=10"
+		"node": ">=18"
 	},
 	"scripts": {
 		"test": "./run-node --version"

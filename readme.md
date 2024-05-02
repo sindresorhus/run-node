@@ -12,14 +12,14 @@ Can be used from any environment that can spawn a process (Shell, Python, Ruby, 
 
 #### Install
 
-```
-$ npm install run-node
+```sh
+npm install run-node
 ```
 
 #### Usage
 
-```
-$ ./node_modules/.bin/run-node file.js
+```sh
+./node_modules/.bin/run-node file.js
 ```
 
 Or in an [npm run script](https://docs.npmjs.com/cli/run-script):
@@ -38,13 +38,13 @@ If the [`node`](https://www.npmjs.com/package/node) package is found in the loca
 
 Download the [run-node](run-node) file:
 
-```
-$ curl -sSLO https://github.com/sindresorhus/run-node/raw/main/run-node && chmod +x run-node
+```sh
+curl -sSLO https://github.com/sindresorhus/run-node/raw/main/run-node && chmod +x run-node
 ```
 
 #### Usage
 
-```
+```sh
 ./run-node file.js
 ```
 
@@ -65,15 +65,3 @@ If the `RUN_NODE_CACHE_PATH` environment variable is defined explicitly, the scr
 
 - [Sindre Sorhus](https://github.com/sindresorhus)
 - [Mathias Fredriksson](https://github.com/mafredri)
-
----
-
-<div align="center">
-	<b>
-		<a href="https://tidelift.com/subscription/pkg/npm-run-node?utm_source=npm-run-node&utm_medium=referral&utm_campaign=readme">Get professional support for this package with a Tidelift subscription</a>
-	</b>
-	<br>
-	<sub>
-		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
-	</sub>
-</div>
