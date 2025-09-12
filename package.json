@@ -11,7 +11,10 @@
 		"url": "https://sindresorhus.com"
 	},
 	"type": "module",
-	"bin": "./run-node",
+	"bin": {
+		"run-node": "./run-node",
+		"run-npx": "./run-npx"
+	},
 	"engines": {
 		"node": ">=18"
 	},
@@ -19,13 +22,16 @@
 		"test": "./run-node --version"
 	},
 	"files": [
-		"run-node"
+		"run-node",
+		"run-npx"
 	],
 	"keywords": [
 		"run",
 		"node",
 		"nodejs",
 		"node.js",
+		"npx",
+		"npm",
 		"find",
 		"binary",
 		"bin",
