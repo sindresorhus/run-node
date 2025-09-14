@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # MIT License © Sindre Sorhus
 
+# If npm_node_execpath is set and exists, use it directly
+if [[ -n $npm_node_execpath && -x $npm_node_execpath ]]; then
+	exec "$npm_node_execpath" "$@"
+fi
+
 if [[ -f "$PWD/node_modules/node/bin/node" ]]; then
 	PATH="$PWD/node_modules/node/bin:$PATH"
 	export PATH

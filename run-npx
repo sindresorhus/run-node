@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 # MIT License © Sindre Sorhus
 
-if [[ -f "$PWD/node_modules/node/bin/node" ]]; then
+# If npm_node_execpath is set and exists, prefer that over local node package
+if [[ -n $npm_node_execpath && -x $npm_node_execpath ]]; then
+	# Don't add local node to PATH when npm_node_execpath is available
+	# This ensures consistency with the parent npm process
+	:
+elif [[ -f "$PWD/node_modules/node/bin/node" ]]; then
 	PATH="$PWD/node_modules/node/bin:$PATH"
 	export PATH
 fi

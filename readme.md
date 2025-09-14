@@ -36,7 +36,7 @@ To run `npx` commands:
 ./node_modules/.bin/run-npx package-name
 ```
 
-If the [`node`](https://www.npmjs.com/package/node) package is found in the local `node_modules` directory (for instance, if you have it installed as a [devDependency](https://docs.npmjs.com/files/package.json#devdependencies) of your npm project), this is the `node` binary that will be used.
+When run within an npm script context, `run-node` will use the same Node.js binary that npm is using (via the `npm_node_execpath` environment variable), ensuring consistency with the parent process. When run directly outside of npm scripts, if the [`node`](https://www.npmjs.com/package/node) package is found in the local `node_modules` directory, that binary will be used instead.
 
 ### Manually
 
@@ -78,8 +78,3 @@ export RUN_NODE_CACHE_PATH="/home/username/.node_path"
 ```
 
 If the `RUN_NODE_CACHE_PATH` environment variable is defined explicitly, the script it points to will be sourced before looking for a `node` binary. You can use this script to override your `PATH` variable so that a specific `node` binary is found.
-
-## Maintainers
-
-- [Sindre Sorhus](https://github.com/sindresorhus)
-- [Mathias Fredriksson](https://github.com/mafredri)
